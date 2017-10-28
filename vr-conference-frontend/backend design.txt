@@ -1,0 +1,23 @@
+frontend views available:
+
+login.html
+register.html
+visitor.html
+content-provider.html
+
+backend routes to be done:
+
+/* login route */
+app.post("/login");
+
+/* register route */
+app.post("/register");
+
+/* visitor route */
+app.get("/conference/:id");
+app.get("/conferences");
+app.post/get("/payment");
+app.post("/conference");
+
+/* content provider routes */
+app.get("/booth/:id");

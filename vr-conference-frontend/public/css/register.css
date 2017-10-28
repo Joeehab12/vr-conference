@@ -1,0 +1,40 @@
+body{
+    background-image: url("../images/photo-1507759709536-db5a2dadf022.jpg");
+    background-size:     cover;
+   background-repeat:   no-repeat;
+}
+h5
+{
+	font-weight: 400;
+}
+.container
+{
+	margin-top: 80px;
+	width: 400px;
+	height: 650px;
+	margin-bottom: 100px;
+    border-radius: 0.5rem;
+}
+@media only screen and (min-width: 601px)
+  .container {
+    width: 50%;
+}
+
+
+.tabs .indicator
+{
+	background-color: #e0f2f1;
+	height: 60px;
+	opacity: 0.3;
+}
+
+.form-container
+{
+	padding: 40px;
+	padding-top: 10px;
+}
+
+.confirmation-tabs-btn
+{
+	position: absolute;
+}

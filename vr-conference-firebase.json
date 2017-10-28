@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vr-conference",
+  "private_key_id": "3ef133e6da712c0b6fbe90991fa85c87cce02050",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC5Z7B3JA0onbz0\nb1GDzW9H6JrQmqPTsNvjYxBVe7VvjgfH+T6n0Dju+qU6u3SF/PFjIcWboXNolxiX\ntLLNmAcNMpMsMVj2z5f7WHYoZ+A69t56hA+0QoWw+zD/dGRk0jFGlEVYvW1M3nLS\n8ttxJ+S2qlz3kdAuUMmz0McKWltZWUVhu/KxcgMJgGMsoH3W00l3uQy6oXDpKUCJ\nB5IWhjwX6O/kZVXil5d/XDSughLN9sdsamliByf7lLwcKnD7wQLM7f8+LYvDPFc1\nMKpXbZwgcZ7nZ58xSvFIM2WljH5xjF03wEckaaTi6zgoD6t5v32kncpGSsZgfL40\nMnf5NoUVAgMBAAECggEAC112d8HXUfy5WdJ+ZgdFzFv51tJj5dTFkIlrYDzBFnbX\nte5quia4FrjOlWxq7CZhNaPFqpCZs85EolK1UzJVMaiT/6AsGpUHH/qAOQyFC5hD\nyFwoCki5oUEEno7SnfY0hxBiX9oyGlrYdw3kCGpa9BzlWK0GMeX0jKKTpj17tAem\nJ+3z65t5RZueHRrQK5VPZXJDOVLX88LNNUpMhTRZNp/NtFrdjjzU2VZdNvdrFOf4\nJLl/ItLBATcZLn9aI89QremTr8Ot3RWgJPicabPrNQWWUnwzJlCLn9MlwZf+PXFa\n9JQ8dYdz9QPViVQ3njnfTi5+yzT+lQ7nMzv1wA53AQKBgQDfdMofLYpr2nB56jWb\ngASJ+RGSVhj1S1veBqC8wQvSMS3zUwy7pGn6MHVHEy5OqMh4W9ik5LVk3i51Rybe\nU1/5BIn3T3WuNAYAQeLVJkhy9dGI3JBffFqcBYX8B29EYx/4duUdsQhh2C771T9Y\njGnJgjdmmFUoaHmozjDVgi5xxQKBgQDUaDjd3dYd3qDhJEfh2LW/kvCs42yeM4Fd\nPFY8FqIxdwV65p1jMzxJZPVLaJALwAxBgtP22n2deizFwNfcNLvVtLR53skCeHli\nQVbAOmKeGoQso3KLwqM7Jw6Yz59Rq4y9ay2DD7iuaHcU01bZL668CF7vbHb9bH1U\n/HK+15+LEQKBgQCv+i3jd933KkRB/uzQ1XS9o+TutddZ9ksXA2k6vV0t34Ush08T\nx1ueqOLzYmupjsqx3sMyuNsR4Nf9jFdT551BYw20MmOfGWFQepLFAi00O9sUSX95\nc1l4XfEyljhORzI6Xof5Zh4P0EzQDxSgC5SUGXS/21/VPtHw2tEilC83cQKBgHjo\nDp60XOJJzLf7h/NWATbYdKllF3oCBXxGESxJEfAoOPVZenNyQbnhfwN6tKwLmK5d\nwzw76M8QMZYrjHQrjFQ8dZL9rtv6KdY1LSVk1qf6ngwuydAmbfYI6HUxkhXSGd3k\nuVZmR5D3o/k1x7T/QG6GMUwGKMFe1QTgYoyhfo6RAoGAJOrVoModm8M/wkVBwrX4\nYGQz5yYeaOuH0vTk9KpuVS0SvhDvEp1iD/4Md+6sTaC7WzJGHKK2D/ISdS0K1Ivr\nNBDwnvwEJpfICNpnH5ekx6ExXjkRL8XdVtjp1+dPsW4320tu7mpICpUHMcD2V6AU\nwtBeqzxCrHzCkjlKCij4s+E=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ps7ne@vr-conference.iam.gserviceaccount.com",
+  "client_id": "114708715830767659029",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ps7ne%40vr-conference.iam.gserviceaccount.com"
+}

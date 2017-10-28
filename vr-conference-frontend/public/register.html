@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <center>
+    <div class="section"></div>
+
+    <h5 class="white-text">VR Conference Simulator</h5>
+</center>
+
+    <div class="container white z-depth-2 grey lighten-4 " style = "border: 1px solid #EEE">
+
+
+        <div id="register" class="col s12" >
+
+                <div class="form-container">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="username" type="email" class="validate">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password-confirm" type="password" class="validate">
+                            <label for="password-confirm">Password Confirmation</label>
+                        </div>
+                    </div>
+                        <div id = "selection" class = "row">
+                            <div  class="input-field col s12">
+                                <select>
+                                    <option value="Visitor">Visitor</option>
+                                    <option value="Content Provider">Content Provider</option>
+                                </select>
+                                <label>User Type</label>
+                            </div>
+                        </div>
+                    </div>
+                    <center>
+                        <button class="btn waves-effect waves-light teal" type="submit" name="action">Sign Up</button>
+                    </center>
+                </div>
+
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="css/js/materialize.min.js"></script>
+    <script type = "text/javascript" src = "scripts/register.js"></script>
+
+</body>
+</html>

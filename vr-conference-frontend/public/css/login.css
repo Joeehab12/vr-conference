@@ -1,0 +1,8 @@
+body{
+    background-image: url("../images/photo-1502481851512-e9e2529bfbf9.jpg");
+    background-size:     cover;
+   background-repeat:   no-repeat;
+}
+.z-depth-1{
+ border-radius: 0.5rem;
+}

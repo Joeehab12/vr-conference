@@ -1,0 +1,9 @@
+body{
+    background-image: url("../images/photo-1508419185846-72baff98c985.jpg");
+    background-size:     cover;
+   background-repeat:   no-repeat;
+}
+#location{
+    max-width: 20%;
+    background-color: #F5F5F5
+}

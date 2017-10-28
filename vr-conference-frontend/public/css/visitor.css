@@ -1,0 +1,26 @@
+body{
+    background-image: url("../images/photo-1507830075634-ce51e8b19328.jpg");
+    background-size:     cover;
+   background-repeat:   no-repeat;
+
+}
+.card{
+        margin:auto;
+        width:250px;
+        border-radius: 0.5rem;
+}
+.circle{
+    margin-right:20px;
+}
+.collapsible{
+    border-radius: 0.5rem;
+}
+.collapsible-header{
+    border-radius: 0.5rem;
+    background-color: #F5F5F5;
+}
+
+.collapsible-body{
+    background-color: #F5F5F5;
+    border-radius: 0.5rem;
+}
