@@ -11,7 +11,6 @@ module.exports = function(req,res,next){
                     var uid = decodedToken.uid;
                     next();
                 }).catch(function(error) {
-                    // Handle error
                     res.json({status: "failed",message: "Failed to verify token." + error})
                 });
             });
@@ -20,4 +19,5 @@ module.exports = function(req,res,next){
     else{
         res.json({status: "failed",message: "No token provided."});
     }
+
 }
