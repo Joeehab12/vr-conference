@@ -1,4 +1,4 @@
-module.exports.banner = function(req,res,next){
+module.exports.bannerPost = function(req,res,next){
 var http = require('http');
 var fs = require('fs');
 var request = require('request');
@@ -29,7 +29,7 @@ fs.writeFileSync("./vr-conference-frontend/public/assets/"+req.body.id+'.'+ext, 
 });
 var boothsRef = ref.child(req.body.id);
 boothsRef.update({
-  "banner": req.body.id + '.' + ext
+  "banner": "http://localhost:8000/" + req.body.id + '.' + ext
 }).then(function(){
     res.status(200).json({status: "success",message:"Image Uploaded Successfully."});
 }).catch(function(err){
