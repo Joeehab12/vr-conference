@@ -1,0 +1,18 @@
+{
+  "booths" : 
+    [{
+      "banner" : "1523xsAssaW.gif",
+      "document" : "",
+      "host_company" : "Google",
+      "location" : "A",
+      "speech" : ""
+    },
+    {
+      "banner" : "http://localhost:8000/1523saW.png",
+      "document" : "",
+      "host_company" : "Facebook",
+      "location" : "B",
+      "speech" : ""	
+    }
+	]
+ }
