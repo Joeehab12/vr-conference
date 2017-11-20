@@ -57,13 +57,12 @@ typings/
 # dotenv environment variables file
 .env
 
-
-/UnityProject/GP-Prototype/[Ll]ibrary/
-/UnityProject/GP-Prototype/[Tt]emp/
-/UnityProject/GP-Prototype/[Oo]bj/
-/UnityProject/GP-Prototype/[Bb]uild/
-/UnityProject/GP-Prototype/[Bb]uilds/
-/UnityProject/GP-Prototype/Assets/AssetStoreTools*
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 /UnityProject/GP-Prototype/.vs/
