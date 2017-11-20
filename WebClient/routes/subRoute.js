@@ -6,7 +6,7 @@ module.exports = function(app){
     var bannerPostController = require('../controllers/bannerPostController.js');
     var conferenceController = require('../controllers/conferenceController.js');
     var conferenceIdController = require('../controllers/conferenceIdController.js');
-    var videoController = require('../controllers/videoController.js')
+    var fileController = require('../controllers/fileController.js')
     var boothsController = require('../controllers/boothsController.js');
     var loginMiddleware = require('../middlewares/loginMiddleware.js');
 
@@ -17,5 +17,8 @@ module.exports = function(app){
     app.get('/booths',boothsController.booths);
     app.get('/conferences',conferenceController.conferences);
     app.get('/conferences/:id',conferenceIdController.conferenceId);
-    app.post('/video',upload.single('video_file'),videoController.video);
+    app.post('/upload',upload.single('video_file'),fileController.file);
+    app.get('/content',function(req,res,next){
+        res.send()
+    });
 }
