@@ -235,6 +235,7 @@
     <Compile Include="Assets\Scripts\Downloaded\UnzipAndRead.cs" />
     <Compile Include="Assets\Scripts\Downloaded\ZipUnzipSample.cs" />
     <Compile Include="Assets\Scripts\ImageLoader.cs" />
+    <Compile Include="Assets\Scripts\Login.cs" />
     <Compile Include="Assets\Scripts\PDFOpener.cs" />
     <Compile Include="Assets\Scripts\SendWebRequest.cs" />
   </ItemGroup>

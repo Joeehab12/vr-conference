@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class DataManager : MonoBehaviour {
+public class DataManager : MonoBehaviour
+{
 
-	void Start () {
-        LoadDataFromJoe();
-	}
-	
-	void Update () {
-		
-	}
+    public string JSONURL = "";
+    void Start()
+    {
+        DownloadJSONFile();
+    }
+
+    void DownloadJSONFile()
+    {
+        //Download JSON File and save it in the folder
+        StartCoroutine(GetJSONFile(JSONURL));
+        //Download Videos
+    }
 
 
     void LoadDataFromJoe(string fName = "jsonFile.json")
@@ -32,5 +38,14 @@ public class DataManager : MonoBehaviour {
         {
             Debug.LogError("JSON FILE NOT FOUND PLEASE BE CAREFUL NEXT TIME OR I WILL GET YOU MYSELF");
         }
+    }
+
+    IEnumerator GetJSONFile(string url)
+    {
+        WWW www = new WWW(url);
+
+        yield return www;
+
+        LoadDataFromJoe();
     }
 }
