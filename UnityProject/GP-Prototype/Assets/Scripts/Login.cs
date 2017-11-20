@@ -40,27 +40,26 @@ public class Login : MonoBehaviour
 
     string url = "http://localhost:8000/login";
 
-    string ay7aga = "username=3amo12&password=123456";
+    string ay7aga = "username=\"3amo12\"&password=\"1234556\"";
 
     IEnumerator LoginCoro()
     {
-        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        formData.Add(new MultipartFormDataSection(ay7aga));
-        //formData.Add(new MultipartFormFileSection("my file data", "myfile.txt"));
+		WWWForm form= new WWWForm ();
+		form.AddField ("username", "3amo12");
+		form.AddField ("password", "123456");
 
-        Debug.Log("STARTING BETA3");
+		WWW www = new WWW (url, form);
 
-        UnityWebRequest www = UnityWebRequest.Post(url, formData);
-        yield return www.SendWebRequest();
-        Debug.Log("ENDING BETA3");
-        if (www.isNetworkError || www.isHttpError)
+		yield return www;
+
+		if (!string.IsNullOrEmpty(www.error))
         {
             Debug.Log(www.error);
         }
         else
         {
             Debug.Log("Form upload complete!");
-            Debug.Log(www.downloadHandler.text);
+            Debug.Log(www.text);
         }
 
     }
