@@ -7,30 +7,36 @@ public class UnzipAndRead : MonoBehaviour
     public GameObject A4PaperPrefab;
     public Transform pos;
 
-    void OnGUI()
+    //void OnGUI()
+    //{
+    //    if (GUI.Button(new Rect(0, 0, 100, 100), "load"))
+    //    {
+    //        StartCoroutine(Load());
+    //    }
+    //}
+
+    public void LoadZipData(string url)
     {
-        if (GUI.Button(new Rect(0, 0, 100, 100), "load"))
-        {
-            StartCoroutine(Load());
-        }
+        StartCoroutine(Load(url));
     }
 
-    IEnumerator Load()
+    IEnumerator Load(string url)
     {
         string zipPath = "ZIP_Compressed" + "/test.zip";
         string exportPath = "ZIP_Extracted";
 
         //WWW www = new WWW("https://osdn.net/frs/g_redir.php?m=netix&f=%2Ffotohound%2Fsample-pictures%2FSample%2FSample-Pictures.zip");
+        WWW www = new WWW(url);
 
-        //yield return www;
-        yield return null;
+        yield return www;
+        //yield return null;
 
-        //      Debug.Log("IMAGES DOWNLOADED");
-        //var data = www.bytes;
-        //File.WriteAllBytes(zipPath, data);
-        //ZipUtil.Unzip(zipPath, exportPath);
+        //Debug.Log("IMAGES DOWNLOADED");
+        var data = www.bytes;
+        File.WriteAllBytes(zipPath, data);
+        ZipUtil.Unzip(zipPath, exportPath);
 
-        //      Debug.Log("IMAGES UNZIPED");
+        //Debug.Log("IMAGES UNZIPED");
 
         string[] fileNames = Directory.GetFiles(exportPath);
 

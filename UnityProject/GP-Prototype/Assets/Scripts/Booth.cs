@@ -16,13 +16,10 @@ public class Booth : MonoBehaviour
 
     }
 
-    public void InitiateData()
+    public void InitiateData(string boothImageLink, string boothZipLink/*, string boothVideoLink */)
     {
-
-    }
-
-    void Update()
-    {
-
+        boothImageLoader.LoadTextures(boothImageLink);
+        boothUnzipAndRead.LoadZipData(boothZipLink);
+        //boothVideo.LoadVideo(boothVideoLink);
     }
 }
