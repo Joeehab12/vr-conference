@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
     <title>Content Provider Booth Location Selector</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -12,7 +15,7 @@
         <h5 class = "white-text"> Available Booth Locations </h5>
         <img style = "border-radius: 0.5rem;"src = "images/booth-locations2.png" width="500" height = "250">
         <div id ="location" class="input-field">
-            <select>
+            <select id ="location_selector" >
                 <option value="A">Location A</option>
                 <option value="B">Location B</option>
                 <option value="C">Location C</option>
@@ -25,8 +28,20 @@
             <form id = "video_form" method = "post" enctype="multipart/form-data">
                 <input type = "file" id = "video_file" name = "video_file">
             </form>
+            <button id = "choose_file" class='col s12 btn btn-large waves-effect'> Browse </button>
+            <button id = "upload" class='col s12 btn btn-large waves-effect'> Upload </button> <br>
+            <div id ="location" class="input-field">
+                <select id = "file_type">
+                    <option value="banner_image">Banner Image</option>
+                    <option value="video">Booth Video</option>
+                    <option value="document">PDF Document</option>
+                </select>
+                <label class = "white-text">File Type</label>
+            </div>
+            <label id = "file_name" ></label>
     </center>
     <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+     <script type = "text/javascript" src="scripts/jquery.cookie.js"></script>
     <script type="text/javascript" src="css/js/materialize.min.js"></script>
     <script type="text/javascript" src = "scripts/content.js"></script>
 </body>

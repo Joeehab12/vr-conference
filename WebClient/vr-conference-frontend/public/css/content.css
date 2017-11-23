@@ -7,3 +7,9 @@ body{
     max-width: 20%;
     background-color: #F5F5F5
 }
+
+#file_name{
+    color:white;
+
+    font-size: 15px;
+}

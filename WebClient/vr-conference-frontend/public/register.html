@@ -18,13 +18,13 @@
     <div class="container white z-depth-2 grey lighten-4 " style = "border: 1px solid #EEE">
 
 
-        <div id="register" class="col s12" >
+        <div class="col s12" >
 
                 <div class="form-container">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">First Name</label>
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
                         </div>
                         <div class="input-field col s6">
                             <input id="last_name" type="text" class="validate">
@@ -33,8 +33,8 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="username" type="email" class="validate">
-                            <label for="username">Username</label>
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="row">
@@ -45,13 +45,13 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password-confirm" type="password" class="validate">
-                            <label for="password-confirm">Password Confirmation</label>
+                            <input id="password_confirm" type="password" class="validate">
+                            <label for="password_confirm">Password Confirmation</label>
                         </div>
                     </div>
-                        <div id = "selection" class = "row">
+                        <div class = "row">
                             <div  class="input-field col s12">
-                                <select>
+                                <select id = "selection">
                                     <option value="Visitor">Visitor</option>
                                     <option value="Content Provider">Content Provider</option>
                                 </select>
@@ -60,8 +60,10 @@
                         </div>
                     </div>
                     <center>
-                        <button class="btn waves-effect waves-light teal" type="submit" name="action">Sign Up</button>
+                        <button id = "register" class="btn waves-effect waves-light teal" type="submit" name="action">Sign Up</button>
+                        <label id = "error-message"></label>
                     </center>
+
                 </div>
 
         </div>
