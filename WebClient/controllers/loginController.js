@@ -16,11 +16,11 @@ module.exports.login = function(req,res,next){
                 res.json({status:"Success",message: "Enjoy your Token :)",token: customToken});
             })
             .catch(function(error) {
-                res.json({status:"Failed", message: "Error creating custom token:"+ error});
+                res.json({status:"Failed", message: "Inavlid username or password."});
             });
         });
     }).catch(function(err){
-        res.json({status:"Failed", message: "Failed to create token: "+ err});
+        res.json({status:"Failed", message: "Connection Error"});
     });
 
 
