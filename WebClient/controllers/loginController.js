@@ -20,7 +20,7 @@ module.exports.login = function(req,res,next){
             });
         });
     }).catch(function(err){
-        res.json({status:"Failed", message: "Connection Error"});
+        res.json({status:"Failed", message: "Inavlid username or password."});
     });
 
 
