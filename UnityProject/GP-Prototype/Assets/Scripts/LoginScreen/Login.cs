@@ -51,9 +51,11 @@ public class Login : MonoBehaviour
     IEnumerator LoginCoro()
     {
         LoginBtn.interactable = false;
+        username.interactable = false;
+        password.interactable = false;
 
         WWWForm form = new WWWForm();
-        form.AddField("username", username.text);
+        form.AddField("email", username.text);
         form.AddField("password", password.text);
 
         WWW www = new WWW(url, form);
@@ -81,6 +83,7 @@ public class Login : MonoBehaviour
             {
                 OnConnectedToHere();
                 token.Value = recData.token;
+                token.eMail = username.text;
             }
             else
             {
@@ -89,7 +92,11 @@ public class Login : MonoBehaviour
         }
 
         if (LoginBtn.gameObject.activeSelf)
+        {
             LoginBtn.interactable = true;
+            username.interactable = true;
+            password.interactable = true;
+        }
 
 
     }

@@ -6,5 +6,6 @@ using UnityEngine;
 public class LoginToken : ScriptableObject
 {
     public string Value;
+    public string eMail;
 
 }

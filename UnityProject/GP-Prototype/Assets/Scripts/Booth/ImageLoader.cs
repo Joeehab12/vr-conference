@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ImageLoader : MonoBehaviour
 {
@@ -24,15 +25,29 @@ public class ImageLoader : MonoBehaviour
         }
     }
 
+
+    public void CALLMEPLEASE()
+    {
+        StartCoroutine(LoadVideo("http://techslides.com/demos/sample-videos/small.mp4", ""));
+    }
+
+    string path;
+    public VideoPlayer vp;
+
     public IEnumerator LoadVideo(string videoURL, string location)
     {
         WWW www = new WWW(videoURL);
         yield return www;
-
-        string path = Path.Combine(Application.streamingAssetsPath, "video" + location + ".mp4");
-
+        path = Path.Combine(Application.streamingAssetsPath, "Vid.mp4");
         File.WriteAllBytes(path, www.bytes);
 
+        Debug.Log("Done");
+
+        vp.url = path;
+
+        //videoRend.material.mainTexture = movie;
+
+        vp.Play();
 
     }
 }
