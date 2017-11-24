@@ -16,5 +16,5 @@ public class booths
     public string document;
     public string host_company;
     public string location;
-    public string speech;
+    public string video;
 }

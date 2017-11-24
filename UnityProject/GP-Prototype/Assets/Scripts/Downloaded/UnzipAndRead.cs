@@ -7,6 +7,9 @@ public class UnzipAndRead : MonoBehaviour
     public GameObject A4PaperPrefab;
     public Transform pos;
 
+    const string ZIPEDFOLDERNAME = "ZIPPED";
+    const string EXTRACTEDFOLDERNAME = "UNZIPPED";
+
     //void OnGUI()
     //{
     //    if (GUI.Button(new Rect(0, 0, 100, 100), "load"))
@@ -15,15 +18,21 @@ public class UnzipAndRead : MonoBehaviour
     //    }
     //}
 
-    public void LoadZipData(string url)
+    public void LoadZipData(string url, string location)
     {
-        StartCoroutine(Load(url));
+        StartCoroutine(Load(url, location));
     }
 
-    IEnumerator Load(string url)
+    IEnumerator Load(string url, string boothLocation)
     {
-        string zipPath = "ZIP_Compressed" + "/test.zip";
-        string exportPath = "ZIP_Extracted";
+        //check if url is empty .. return
+        //check if extracted folder exisist .. skip downloading and do the zipping only
+        //download (no need to check the zipped folder because it might be corrupted (because it did not finish this part w 3ml foler)
+
+        Debug.Log("ZIP: Started Downloading ZIP File for booth " + boothLocation + " with url: " + url);
+
+        string zipPath = Path.Combine(Application.streamingAssetsPath, ZIPEDFOLDERNAME + "/BoothZIP_" + boothLocation + ".zip");
+        string exportPath = Path.Combine(Application.streamingAssetsPath, EXTRACTEDFOLDERNAME + "/BoothZIP_" + boothLocation);
 
         //WWW www = new WWW("https://osdn.net/frs/g_redir.php?m=netix&f=%2Ffotohound%2Fsample-pictures%2FSample%2FSample-Pictures.zip");
         WWW www = new WWW(url);
@@ -31,12 +40,17 @@ public class UnzipAndRead : MonoBehaviour
         yield return www;
         //yield return null;
 
+        Debug.Log("ZIP: Downloded zipped file for booth " + boothLocation);
+
         //Debug.Log("IMAGES DOWNLOADED");
         var data = www.bytes;
         File.WriteAllBytes(zipPath, data);
         ZipUtil.Unzip(zipPath, exportPath);
 
         //Debug.Log("IMAGES UNZIPED");
+
+        Debug.Log("ZIP: Unzipped zipped file for booth " + boothLocation);
+
 
         string[] fileNames = Directory.GetFiles(exportPath);
 
@@ -57,10 +71,10 @@ public class UnzipAndRead : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("Completed");
+        Debug.Log("ZIP: Completed ZIP file to textures and instatiting them");
 
 
-        File.Delete(zipPath);
-        Directory.Delete(exportPath, true);
+        //File.Delete(zipPath);
+        //Directory.Delete(exportPath, true);
     }
 }

@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class BoothData
 {
-    public string letter;
-    public string LogoLink; //3x2
-    public string[] pdfLinks;
-
-
+    public string name;
+    public string boothImageLink;
+    public string boothZipLink;
+    public string boothVideoLink;
 }

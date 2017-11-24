@@ -27,7 +27,8 @@ public class DataManager : MonoBehaviour
         var allOfThem = FindObjectsOfType<Booth>();
         foreach (var bothaya in allOfThem)
         {
-            MyBooths.Add(bothaya.name, bothaya);
+            //Debug.Log(bothaya.boothLocation);
+            MyBooths.Add(bothaya.boothLocation, bothaya);
         }
     }
 
@@ -40,21 +41,33 @@ public class DataManager : MonoBehaviour
 
     IEnumerator GetJSONFile(string ConferenceID)
     {
+        Debug.Log("DataManager: Getting JSON File for conference: " + ConferenceID);
         string actualURL = SERVER_URL + "conferences/" + ConferenceID + "?token=" + token.Value;
         WWW www = new WWW(actualURL);
 
         yield return www;
+
+
+        Debug.Log("JSON File Received: " + www.text);
+        if (www.text == "")
+        {
+            Debug.Log("NO INTERNET CONNECTION");
+            yield break;
+        }
         string JsonString = www.text.Substring(1);
         JsonString = JsonString.Substring(JsonString.IndexOf('{'));
         JsonString = JsonString.Substring(0, JsonString.Length - 1);
         boothsData = JsonUtility.FromJson<BoothFromJoe>(JsonString);
 
-        Debug.Log(boothsData.booths[0].host_company);
+        //Debug.Log(boothsData.booths[0].host_company);
+
+        Debug.Log("DataManager: Processed the tokenFile");
+
 
         foreach (var both in boothsData.booths)
         {
             var currentBooth = MyBooths[both.location];
-            currentBooth.InitiateData(both.host_company, both.banner, both.document, both.speech);
+            currentBooth.InitiateData(both.host_company, both.banner, both.document, both.video);
             yield return null;
         }
     }

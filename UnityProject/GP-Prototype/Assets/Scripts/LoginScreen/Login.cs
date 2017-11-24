@@ -97,8 +97,6 @@ public class Login : MonoBehaviour
             username.interactable = true;
             password.interactable = true;
         }
-
-
     }
 
     void UpdateFeedbackText(string text, Color clr)

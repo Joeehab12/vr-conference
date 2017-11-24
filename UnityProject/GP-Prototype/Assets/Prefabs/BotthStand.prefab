@@ -129,6 +129,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1541808093956880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4067728707469512}
+  - component: {fileID: 33959973981071374}
+  - component: {fileID: 64964702123760752}
+  - component: {fileID: 23351227227646378}
+  - component: {fileID: 328569137140084508}
+  m_Layer: 0
+  m_Name: VideoPlane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1641631960889180
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +193,7 @@ GameObject:
   - component: {fileID: 4954463532045370}
   - component: {fileID: 114411252268141756}
   - component: {fileID: 114552333457742272}
+  - component: {fileID: 114872574233290476}
   - component: {fileID: 114072810575646118}
   m_Layer: 0
   m_Name: BotthStand
@@ -182,6 +202,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!4 &4067728707469512
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541808093956880}
+  m_LocalRotation: {x: 0.70710576, y: -8.526513e-14, z: 0.00000046361458, w: 0.70710784}
+  m_LocalPosition: {x: 0.33, y: 1.35, z: 0.735}
+  m_LocalScale: {x: 0.13401796, y: 0.19145425, z: 0.09381258}
+  m_Children: []
+  m_Father: {fileID: 4954463532045370}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!4 &4344762054999704
 Transform:
   m_ObjectHideFlags: 1
@@ -291,6 +324,7 @@ Transform:
   - {fileID: 4344762054999704}
   - {fileID: 4369031241669886}
   - {fileID: 224023735465952256}
+  - {fileID: 4067728707469512}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
@@ -318,6 +352,40 @@ MeshRenderer:
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23351227227646378
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541808093956880}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: cbd45039b450f2044a5a8a9e1ab76ebb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -543,6 +611,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641631960889180}
   m_Mesh: {fileID: 4300002, guid: 3c4984a5fbbf8e64ea5b4ae60f5bb233, type: 3}
+--- !u!33 &33959973981071374
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541808093956880}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &64964702123760752
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541808093956880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &65266407560492108
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -566,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d694fb27b63214f869a328fd25644a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoothName: A
+  boothLocation: A
   companyName: {fileID: 114868570673005752}
 --- !u!114 &114366127148208486
 MonoBehaviour:
@@ -595,11 +684,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20af40b2e84b2449987010847211b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://scontent.fcai2-1.fna.fbcdn.net/v/t1.0-9/13501746_10154370336786929_1883349857332770520_n.jpg?oh=e2a6ecea48da308c027437c5bb3563d1&oe=5AAF533A
   rends:
   - {fileID: 23437923811296500}
   - {fileID: 23456146560659946}
   - {fileID: 23255554165772454}
+  videoRend: {fileID: 23351227227646378}
+  vp: {fileID: 328569137140084508}
 --- !u!114 &114511216604597116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -668,6 +758,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: COMAPNY NAME
+--- !u!114 &114872574233290476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935122462640574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa57386af4909f4aab9ed91b270fca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  token: {fileID: 11400000, guid: 8ea9f381785270649bbd4a43e6cfc183, type: 2}
 --- !u!222 &222029121855939992
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -731,3 +833,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!328 &328569137140084508
+VideoPlayer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541808093956880}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 3
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 0
+  m_FrameReadyEventEnabled: 0
