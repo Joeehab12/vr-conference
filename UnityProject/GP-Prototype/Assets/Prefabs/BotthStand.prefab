@@ -566,6 +566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d694fb27b63214f869a328fd25644a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoothName: A
+  companyName: {fileID: 114868570673005752}
 --- !u!114 &114366127148208486
 MonoBehaviour:
   m_ObjectHideFlags: 1

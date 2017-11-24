@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-public class ImageLoader : MonoBehaviour {
-
-    public string url = "https://docs.unity3d.com/uploads/Main/ShadowIntro.png";
+public class ImageLoader : MonoBehaviour
+{
+    //public string url = "https://docs.unity3d.com/uploads/Main/ShadowIntro.png";
     public Renderer[] rends;
+
+    public Renderer videoRend;
 
 
     public IEnumerator LoadTextures(string imageURL)
@@ -19,5 +22,17 @@ public class ImageLoader : MonoBehaviour {
         {
             rend.materials[1].mainTexture = tex;
         }
+    }
+
+    public IEnumerator LoadVideo(string videoURL, string location)
+    {
+        WWW www = new WWW(videoURL);
+        yield return www;
+
+        string path = Path.Combine(Application.streamingAssetsPath, "video" + location + ".mp4");
+
+        File.WriteAllBytes(path, www.bytes);
+
+
     }
 }

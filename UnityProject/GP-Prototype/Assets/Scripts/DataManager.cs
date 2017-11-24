@@ -6,67 +6,56 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     //url + token=token;
-    public const string CONFERENCE_URL = "1xgchdhshd";
-    string JSONFileName = "jsonFile.json";
+    private const string SERVER_URL = "http://localhost:8000/";
+    public const string CONFERENCE_URL = "00123x516y";
 
-    public BoothFromJoe boothsData
-    {
-        get
-        {
-            return boothsData;
-        }
+    public LoginToken token;
 
-        private set
-        {
-            boothsData = value;
-        }
-    }
+    [HideInInspector]
+    public BoothFromJoe boothsData;
+
+    private Dictionary<string, Booth> MyBooths = new Dictionary<string, Booth>();
 
     void Start()
     {
+        GetEachBooth();
         DownloadJSONFile();
+    }
+
+    void GetEachBooth()
+    {
+        var allOfThem = FindObjectsOfType<Booth>();
+        foreach (var bothaya in allOfThem)
+        {
+            MyBooths.Add(bothaya.name, bothaya);
+        }
     }
 
     void DownloadJSONFile()
     {
         //Download JSON File and save it in the folder
-        //StartCoroutine(GetJSONFile(CONFERENCE_URL));
+        StartCoroutine(GetJSONFile(CONFERENCE_URL));
         //Download Videos
     }
 
-    IEnumerator GetJSONFile(string url)
+    IEnumerator GetJSONFile(string ConferenceID)
     {
-        WWW www = new WWW(url);
+        string actualURL = SERVER_URL + "conferences/" + ConferenceID + "?token=" + token.Value;
+        WWW www = new WWW(actualURL);
 
         yield return www;
+        string JsonString = www.text.Substring(1);
+        JsonString = JsonString.Substring(JsonString.IndexOf('{'));
+        JsonString = JsonString.Substring(0, JsonString.Length - 1);
+        boothsData = JsonUtility.FromJson<BoothFromJoe>(JsonString);
 
-        string filePath = Path.Combine(Application.streamingAssetsPath, JSONFileName);
-        var x = File.Open(filePath, FileMode.OpenOrCreate);
-        x.Write(www.bytes, 0, www.bytesDownloaded);
-        x.Close();
+        Debug.Log(boothsData.booths[0].host_company);
 
-
-        LoadDataFromJoe();
-    }
-
-    void LoadDataFromJoe()
-    {
-        string filePath = Path.Combine(Application.streamingAssetsPath, JSONFileName);
-
-        if (File.Exists(filePath))
+        foreach (var both in boothsData.booths)
         {
-            string dataAsJson = File.ReadAllText(filePath);
-
-            BoothFromJoe loadedData = JsonUtility.FromJson<BoothFromJoe>(dataAsJson);
-            boothsData = loadedData;
-
-            //Debug.Log("GGLGKJELDJSESELSEIDS");
-            //Debug.Log(loadedData.booths[0].host_company);
-            //Debug.Log("GGLGKJELDJSESELSEIDS");
-        }
-        else
-        {
-            Debug.LogError("JSON FILE NOT FOUND PLEASE BE CAREFUL NEXT TIME OR I WILL GET YOU MYSELF");
+            var currentBooth = MyBooths[both.location];
+            currentBooth.InitiateData(both.host_company, both.banner, both.document, both.speech);
+            yield return null;
         }
     }
 }
