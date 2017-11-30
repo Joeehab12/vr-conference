@@ -62,7 +62,8 @@ public class ImageLoader : MonoBehaviour
         vp.url = path;
 
         //videoRend.material.mainTexture = movie;
-        //BootVideoPlayStop(true);
+        BootVideoPlayStop(true);
+        BootVideoPlayStop(false);
     }
 
     void BootVideoPlayStop(bool status)

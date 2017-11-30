@@ -10,6 +10,13 @@ public class UnzipAndRead : MonoBehaviour
     const string ZIPEDFOLDERNAME = "ZIPPED";
     const string EXTRACTEDFOLDERNAME = "UNZIPPED";
 
+    Booth myBooth;
+
+    private void Start()
+    {
+        myBooth = GetComponent<Booth>();
+    }
+
     //void OnGUI()
     //{
     //    if (GUI.Button(new Rect(0, 0, 100, 100), "load"))
@@ -68,6 +75,7 @@ public class UnzipAndRead : MonoBehaviour
             paper.transform.position = pos.transform.position + Vector3.up * (3.0f / 2.0f) * (paperThickness) * i++;
             paper.transform.localScale = new Vector3(0.2f, paperThickness, .3f);
             paper.GetComponent<Renderer>().material.mainTexture = tex;
+            paper.GetComponent<A4PaperBooth>().SetBooth(myBooth);
             yield return null;
         }
 
