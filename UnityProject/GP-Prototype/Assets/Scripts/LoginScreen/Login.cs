@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.XR;
 
 [System.Serializable]
 public class RecievedThing
@@ -125,6 +126,32 @@ public class Login : MonoBehaviour
 
     public void OnClickStartButton()
     {
+        //StartCoroutine(LoadDevice());
+        StartCoroutine(LoadDevice("OpenVR"));
+
+    }
+    IEnumerator LoadDevice(string newDevice)
+    {
+        if (!XRSettings.isDeviceActive)
+            yield break;
+        XRSettings.LoadDeviceByName(newDevice);
+        yield return null;
+        XRSettings.enabled = true;
+
+        SceneManager.LoadSceneAsync("MainScene");
+    }
+
+    IEnumerator LoadDevice()
+    {
+        if (!XRSettings.isDeviceActive)
+            yield break;
+        var devices = XRSettings.supportedDevices;
+        if (devices == null || devices.Length < 1)
+            yield break;
+        XRSettings.LoadDeviceByName(devices[0]);
+        yield return null;
+        XRSettings.enabled = true;
+
         SceneManager.LoadSceneAsync("MainScene");
     }
 
