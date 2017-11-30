@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    console.log(location.host);
     $("#login").click(function(){
         $.post('http://localhost:8000/login',{email: $("#email").val(),password: $("#password").val()})
         .done(function( data ) {

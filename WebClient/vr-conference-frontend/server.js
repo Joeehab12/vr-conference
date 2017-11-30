@@ -16,9 +16,14 @@ app.get('/register',function(req,res,next){
     res.sendFile("/register.html",{root: __dirname + '/public'});
 });
 
-app.get('/content',function(req,res,next){
-    res.sendFile("/content.html",{root: __dirname + '/public'});
+app.get('/content-dashboard',function(req,res,next){
+    res.sendFile("/contentDashboard.html",{root: __dirname + '/public'});
 });
+
+app.get('/content-main',function(req,res,next){
+    res.sendFile("/contentMain.html",{root: __dirname + '/public'});
+});
+
 
 app.get('/visitor',function(req,res,next){
     res.sendFile("/visitor.html",{root: __dirname + '/public'});

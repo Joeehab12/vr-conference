@@ -3,7 +3,7 @@ var firebase = require ('../models/config');
 var admin = require('../models/db');
 var db = admin.database();
 var ref = db.ref('conferences');
-var boothsRef = db.ref("conferences/0/booths/");
+var boothsRef = db.ref("conferences/"+req.body.id+"/booths/");
 
 res.setHeader("Access-Control-Allow-Origin","*");
 boothsRef.once("value", function(snapshot) {

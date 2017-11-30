@@ -15,7 +15,7 @@ module.exports = function(app){
     app.post('/register',registerController.register);
     app.use(loginMiddleware);
     app.post('/upload/banner',bannerPostController.bannerPost);
-    app.get('/booths',boothsController.booths);
+    app.post('/booths',boothsController.booths);
     app.get('/conferences',conferenceController.conferences);
     app.get('/conferences/:id',conferenceIdController.conferenceId);
     app.post('/upload',upload.single('video_file'),fileController.file);

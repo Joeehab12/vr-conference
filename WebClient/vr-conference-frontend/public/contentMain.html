@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
+    <title>Content Provider Booth Location Selector</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel = "stylesheet" href = "css/content.css"/>
+</head>
+<body>
+    <center>
+        <h5 class = "white-text"> Available Booth Locations </h5>
+        <img src = "images/booth-locations2.png" id = "canvas1" width = "500" height = "250"></canvas>
+        <div id ="location" class="input-field">
+            <select id ="location_selector" >
+
+            </select>
+            <label class = "white-text">Booth Location</label>
+        </div>
+            <form id = "video_form" method = "post" enctype="multipart/form-data">
+                <input type = "file" id = "video_file" name = "video_file">
+            </form>
+            <button id = "choose_file" class='col s12 btn btn-large waves-effect'> Browse </button>
+            <div id ="file_type_selector" class="input-field">
+                <select id = "file_type">
+                    <option value="banner_image">Banner Image</option>
+                    <option value="video">Booth Video</option>
+                    <option value="document">PDF Document</option>
+                    <option value="inner_graphics">Inner Graphics</option>
+                    <option value="outer_graphics">Outer Graphics</option>
+                </select>
+                <label class = "white-text">File Type</label>
+            </div>
+            <button id = "upload" class='col s12 btn btn-large waves-effect'> Reserve </button> <br>
+
+            <label id = "file_name" ></label>
+    </center>
+    <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+    <script type = "text/javascript" src="scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="css/js/materialize.min.js"></script>
+    <script type="text/javascript" src = "scripts/contentMain.js"></script>
+</body>
+</html>

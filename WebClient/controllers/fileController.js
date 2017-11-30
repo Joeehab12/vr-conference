@@ -5,7 +5,7 @@ module.exports.file = function(req,res,next){
     var firebase = require ('../models/config');
     var admin = require('../models/db');
     var db = admin.database();
-    var ref = db.ref('conferences/0/booths');
+    var ref = db.ref('conferences/'+req.body.id+'/booths');
     var file_name = req.file;
     //var file = fs.createWriteStream("file.jpg");
 
@@ -35,8 +35,11 @@ module.exports.file = function(req,res,next){
     else if (req.body.file_type == "video"){
         ref.child(locations_map[index]).update({video : "http://localhost:8000/" + req.file.originalname});
     }
-    else{
+    else if (req.body.file_type == "inner_graphics"){
         ref.child(locations_map[index]).update({inner_graphics : "http://localhost:8000/" + req.file.originalname});
+    }
+    else{
+        ref.child(locations_map[index]).update({outer_graphics : "http://localhost:8000/" + req.file.originalname});
     }
     console.log(index);
     ref.child(locations_map[index]).update({reserved: "true"});
