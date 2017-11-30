@@ -5,6 +5,16 @@ $(document).ready(function() {
 
     });
     $('#video_file').hide();
+    $.get("http://localhost:8000/booths?token=" + $.cookie("token"),function(data){
+        data.forEach(function(item){
+            if (item.reserved == "false"){
+                $("#location_selector").append("<option value = " + item.location + '>Location ' + item.location + "</option>");
+                console.log(item.location);
+                console.log($("#canvas1"));
+                $('select').material_select();
+            }
+        });
+    });
     $('#upload').on("click",function(e){
         var file = $("#video_file")[0].files[0];
         var formData = new FormData($("#video_file")[0][0]);
@@ -18,6 +28,17 @@ $(document).ready(function() {
         var xhr = new XMLHttpRequest();
         xhr.open("POST",'http://localhost:8000/upload?token=' + token);
         xhr.send(formData);
+        $.get("http://localhost:8000/booths?token=" + $.cookie("token"),function(data){
+            $("#location_selector").empty();
+            data.forEach(function(item){
+                if (item.reserved == "false"){
+
+                    $("#location_selector").append("<option value = " + item.location + '>Location ' + item.location + "</option>");
+                    console.log(item.location);
+                    $('select').material_select();
+                }
+            });
+        });
     });
     $('#video_file').change(function() {
         var file = $('#video_file')[0].files[0].name;

@@ -13,15 +13,10 @@
 <body>
     <center>
         <h5 class = "white-text"> Available Booth Locations </h5>
-        <img style = "border-radius: 0.5rem;"src = "images/booth-locations2.png" width="500" height = "250">
+        <img src = "images/booth-locations2.png" id = "canvas1" width = "500" height = "250"></canvas>
         <div id ="location" class="input-field">
             <select id ="location_selector" >
-                <option value="A">Location A</option>
-                <option value="B">Location B</option>
-                <option value="C">Location C</option>
-                <option value="D">Location D</option>
-                <option value="E">Location E</option>
-                <option value="F">Location F</option>
+
             </select>
             <label class = "white-text">Booth Location</label>
         </div>
@@ -29,19 +24,21 @@
                 <input type = "file" id = "video_file" name = "video_file">
             </form>
             <button id = "choose_file" class='col s12 btn btn-large waves-effect'> Browse </button>
-            <button id = "upload" class='col s12 btn btn-large waves-effect'> Upload </button> <br>
-            <div id ="location" class="input-field">
+            <div id ="file_type_selector" class="input-field">
                 <select id = "file_type">
                     <option value="banner_image">Banner Image</option>
                     <option value="video">Booth Video</option>
                     <option value="document">PDF Document</option>
+                    <option value="inner_graphics">Inner Graphics</option>
                 </select>
                 <label class = "white-text">File Type</label>
             </div>
+            <button id = "upload" class='col s12 btn btn-large waves-effect'> Reserve </button> <br>
+
             <label id = "file_name" ></label>
     </center>
     <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
-     <script type = "text/javascript" src="scripts/jquery.cookie.js"></script>
+    <script type = "text/javascript" src="scripts/jquery.cookie.js"></script>
     <script type="text/javascript" src="css/js/materialize.min.js"></script>
     <script type="text/javascript" src = "scripts/content.js"></script>
 </body>

@@ -3,18 +3,13 @@ var firebase = require ('../models/config');
 var admin = require('../models/db');
 var db = admin.database();
 var ref = db.ref('conferences');
-var boothsRef = ref.child("conferences/booths");
+var boothsRef = db.ref("conferences/0/booths/");
 
-var response = [];
-ref.on("value", function(snapshot) {
+res.setHeader("Access-Control-Allow-Origin","*");
+boothsRef.once("value", function(snapshot) {
 //    console.log(snapshot);
-    snapshot.forEach(function(item){
-        item.val().booths.forEach(function(booth){
-                response.push(booth);
-        });
-    });
 
-    res.status(200).json(response);
+    res.status(200).json(snapshot.val());
 }, function (errorObject) {
   res.status(404).json({status:"failed",message:"Failed to retrieve data from database."});
 });

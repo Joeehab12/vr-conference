@@ -4,7 +4,12 @@ $(document).ready(function(){
         .done(function( data ) {
             $.cookie("token",data.token);
             if (data.status == "Success"){
+                if (data.user_type == "visitor"){
                 $(location).attr('href','http://localhost:8080/visitor');
+                }
+                else if (data.user_type == "content provider"){
+                $(location).attr('href','http://localhost:8080/content');
+                }
             }
             else{
                 $('#error-message').text(data.message);

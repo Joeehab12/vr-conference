@@ -14,7 +14,7 @@ module.exports.login = function(req,res,next){
             var uid = data.uid;
             admin.auth().createCustomToken(uid)
             .then(function(customToken) {
-                res.json({status:"Success",message: "Enjoy your Token :)",token: customToken});
+                res.json({status:"Success",message: "Enjoy your Token :)",token: customToken, user_type: data.type});
             })
             .catch(function(error) {
                 res.json({status:"Failed", message: "Inavlid username or password."});

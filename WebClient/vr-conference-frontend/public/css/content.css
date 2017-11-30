@@ -7,7 +7,14 @@ body{
     max-width: 20%;
     background-color: #F5F5F5
 }
+#file_type_selector{
+    max-width: 20%;
+    background-color: #F5F5F5;
+}
 
+#upload{
+    display:inline;
+}
 #file_name{
     color:white;
 
