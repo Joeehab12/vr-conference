@@ -13,8 +13,11 @@ public class BoothFromJoe
 public class booths
 {
     public string banner;
+    public string inner_graphics;
+    public string outer_graphics;
     public string document;
     public string host_company;
     public string location;
     public string video;
+
 }

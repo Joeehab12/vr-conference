@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class RecievedThing
@@ -12,6 +12,7 @@ public class RecievedThing
     public string status;
     public string message;
     public string token;
+    public string user_type;
 }
 
 
@@ -24,9 +25,12 @@ public class Login : MonoBehaviour
     public LoginToken token;
     public Button LoginBtn, StartBtn;
 
+    EventSystem system;
     void Start()
     {
         FeedBackText.text = "";
+        system = EventSystem.current;
+
     }
 
     public void LoginButton()
@@ -105,13 +109,10 @@ public class Login : MonoBehaviour
         FeedBackText.color = clr;
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.A))
-    //    {
-    //        OnConnectedToHere();
-    //    }
-    //}
+    private void Update()
+    {
+        TabChangeLife();
+    }
 
     void OnConnectedToHere()
     {
@@ -125,5 +126,24 @@ public class Login : MonoBehaviour
     public void OnClickStartButton()
     {
         SceneManager.LoadSceneAsync("MainScene");
+    }
+
+    public void TabChangeLife() //https://forum.unity.com/threads/tab-between-input-fields.263779/
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Selectable next = system.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
+
+            if (next != null)
+            {
+
+                InputField inputfield = next.GetComponent<InputField>();
+                if (inputfield != null)
+                    inputfield.OnPointerClick(new PointerEventData(system));  //if it's an input field, also set the text caret
+
+                system.SetSelectedGameObject(next.gameObject, new BaseEventData(system));
+            }
+            //else Debug.Log("next nagivation element not found");
+        }
     }
 }

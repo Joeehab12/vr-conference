@@ -67,7 +67,7 @@ public class DataManager : MonoBehaviour
         foreach (var both in boothsData.booths)
         {
             var currentBooth = MyBooths[both.location];
-            currentBooth.InitiateData(both.host_company, both.banner, both.document, both.video);
+            currentBooth.InitiateData(both.host_company, both.banner, both.inner_graphics, both.outer_graphics, both.document, both.video);
             yield return null;
         }
     }

@@ -5,7 +5,9 @@ using UnityEngine;
 public class BoothData
 {
     public string name;
-    public string boothImageLink;
+    public string boothBannerImageLink;
+    public string boothInnerGraphicsLink;
+    public string boothOuterGraphicsLink;
     public string boothZipLink;
     public string boothVideoLink;
 }

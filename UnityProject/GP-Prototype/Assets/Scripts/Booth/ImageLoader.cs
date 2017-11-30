@@ -7,17 +7,27 @@ using UnityEngine.Video;
 public class ImageLoader : MonoBehaviour
 {
     //public string url = "https://docs.unity3d.com/uploads/Main/ShadowIntro.png";
-    public Renderer[] rends;
-
+    public Renderer[] bannerRends;
+    public Renderer WallRend;
     public Renderer videoRend;
 
 
-    public void LoadTextures(string imgeURL)
+    public void LoadBanner(string imgeURL)
     {
-        StartCoroutine(LoadTexturesCo(imgeURL));
+        StartCoroutine(LoadBannerCo(imgeURL, bannerRends, 1));
     }
 
-    IEnumerator LoadTexturesCo(string imageURL)
+    public void LoadOuterGraphics(string imgeURL)
+    {
+        StartCoroutine(LoadBannerCo(imgeURL, WallRend, 1));
+    }
+
+    public void LoadInnerGraphics(string imgeURL)
+    {
+        StartCoroutine(LoadBannerCo(imgeURL, WallRend, 2));
+    }
+
+    IEnumerator LoadBannerCo(string imageURL, Renderer[] rends, int index)
     {
         Debug.Log("TEXTURE: Loading Image with URL: " + imageURL);
         Texture2D tex;
@@ -30,8 +40,22 @@ public class ImageLoader : MonoBehaviour
 
         foreach (var rend in rends)
         {
-            rend.materials[1].mainTexture = tex;
+            rend.materials[index].mainTexture = tex;
         }
+    }
+
+    IEnumerator LoadBannerCo(string imageURL, Renderer rend, int index)
+    {
+        Debug.Log("TEXTURE: Loading Image with URL: " + imageURL);
+        Texture2D tex;
+        tex = new Texture2D(4, 4, TextureFormat.DXT1, false);
+        WWW www = new WWW(imageURL);
+        yield return www;
+        www.LoadImageIntoTexture(tex);
+
+        Debug.Log("TEXTURE: Completed loading Image with URL: " + imageURL);
+
+        rend.materials[index].mainTexture = tex;
     }
 
 

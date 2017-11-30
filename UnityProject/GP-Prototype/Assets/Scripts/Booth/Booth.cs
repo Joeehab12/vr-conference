@@ -23,10 +23,12 @@ public class Booth : MonoBehaviour
 
     }
 
-    public void InitiateData(string name, string boothImageLink, string boothZipLink, string boothVideoLink)
+    public void InitiateData(string name, string boothBannerImageLink, string boothInnerGraphicsLink, string boothOuterGraphicsLink, string boothZipLink, string boothVideoLink)
     {
         data.name = name;
-        data.boothImageLink = boothImageLink;
+        data.boothBannerImageLink = boothBannerImageLink;
+        data.boothOuterGraphicsLink = boothOuterGraphicsLink;
+        data.boothInnerGraphicsLink = boothInnerGraphicsLink;
         data.boothZipLink = boothZipLink;
         data.boothVideoLink = boothVideoLink;
 
@@ -36,8 +38,10 @@ public class Booth : MonoBehaviour
     public void LoadBoothData()
     {
         companyName.text = data.name;
-        boothImageLoader.LoadTextures(data.boothImageLink);
+        boothImageLoader.LoadBanner(data.boothBannerImageLink);
         boothImageLoader.LoadVideo(data.boothVideoLink, boothLocation);
+        boothImageLoader.LoadOuterGraphics(data.boothOuterGraphicsLink);
+        boothImageLoader.LoadInnerGraphics(data.boothInnerGraphicsLink);
         //boothUnzipAndRead.LoadZipData(data.boothZipLink);
         //boothVideo.LoadVideo(data.boothVideoLink);
     }
