@@ -9,6 +9,7 @@ module.exports = function(app){
     var fileController = require('../controllers/fileController.js')
     var boothsController = require('../controllers/boothsController.js');
     var emailController = require('../controllers/emailController.js');
+    var reserveController = require('../controllers/reserveController.js');
     var loginMiddleware = require('../middlewares/loginMiddleware.js');
 
     app.post('/login',loginController.login);
@@ -20,4 +21,5 @@ module.exports = function(app){
     app.get('/conferences/:id',conferenceIdController.conferenceId);
     app.post('/upload',upload.single('video_file'),fileController.file);
     app.post('/email',emailController.email);
+    app.post('/reserve',reserveController.reserve);
 }
