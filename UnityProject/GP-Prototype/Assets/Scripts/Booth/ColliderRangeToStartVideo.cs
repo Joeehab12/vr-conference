@@ -11,6 +11,7 @@ public class ColliderRangeToStartVideo : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
+        Debug.Log("Trigger enter " + col.gameObject.name);
         if (col.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player Entered");
@@ -32,7 +33,7 @@ public class ColliderRangeToStartVideo : MonoBehaviour
 
             foreach (var go in objects)
             {
-                go.SetActive(true);
+                go.SetActive(false);
             }
         }
     }

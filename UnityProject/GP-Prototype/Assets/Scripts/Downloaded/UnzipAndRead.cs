@@ -7,8 +7,8 @@ public class UnzipAndRead : MonoBehaviour
     public GameObject A4PaperPrefab;
     public Transform pos;
 
-    const string ZIPEDFOLDERNAME = "ZIPPED";
-    const string EXTRACTEDFOLDERNAME = "UNZIPPED";
+    const string ZIPEDFOLDERNAME = "/ZIPPED";
+    const string EXTRACTEDFOLDERNAME = "/UNZIPPED";
 
     Booth myBooth;
 
@@ -25,6 +25,7 @@ public class UnzipAndRead : MonoBehaviour
     //    }
     //}
 
+    
     public void LoadZipData(string url, string location)
     {
         StartCoroutine(Load(url, location));
@@ -38,8 +39,17 @@ public class UnzipAndRead : MonoBehaviour
 
         Debug.Log("ZIP: Started Downloading ZIP File for booth " + boothLocation + " with url: " + url);
 
-        string zipPath = Path.Combine(Application.streamingAssetsPath, ZIPEDFOLDERNAME + "/BoothZIP_" + boothLocation + ".zip");
-        string exportPath = Path.Combine(Application.streamingAssetsPath, EXTRACTEDFOLDERNAME + "/BoothZIP_" + boothLocation);
+        string streamingAssetsLocation = Application.streamingAssetsPath;
+
+        string zipPath = streamingAssetsLocation + ZIPEDFOLDERNAME + "/BoothZIP_" + boothLocation + ".zip";
+        string exportPath = streamingAssetsLocation + EXTRACTEDFOLDERNAME + "/BoothZIP_" + boothLocation;
+        if (!Directory.Exists(exportPath))
+        {
+            Directory.CreateDirectory(streamingAssetsLocation + ZIPEDFOLDERNAME);
+            Directory.CreateDirectory(exportPath);
+        }
+     
+
 
         //WWW www = new WWW("https://osdn.net/frs/g_redir.php?m=netix&f=%2Ffotohound%2Fsample-pictures%2FSample%2FSample-Pictures.zip");
         WWW www = new WWW(url);
@@ -63,9 +73,10 @@ public class UnzipAndRead : MonoBehaviour
 
         float paperThickness = 0.02f;
         int i = 0;
-        Debug.Log(fileNames[2]);
         foreach (var n in fileNames)
         {
+            if (n.EndsWith("meta"))
+                continue;
             var tex = new Texture2D(4, 4, TextureFormat.DXT1, false);
 
             var imageData = File.ReadAllBytes(n);
@@ -80,7 +91,6 @@ public class UnzipAndRead : MonoBehaviour
         }
 
         Debug.Log("ZIP: Completed ZIP file to textures and instatiting them");
-
 
         //File.Delete(zipPath);
         //Directory.Delete(exportPath, true);

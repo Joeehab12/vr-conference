@@ -4,7 +4,7 @@ var admin = require('../models/db');
 var db = admin.database();
 var ref = db.ref('conferences');
 var id = req.params.id;
-ref.orderByChild("id").equalTo(id).on("value", function(snapshot) {
+ref.orderByChild("id").equalTo(id).once("value", function(snapshot) {
  // console.log(snapshot.val());
   res.status(200).json(snapshot.val());
 }, function (errorObject) {

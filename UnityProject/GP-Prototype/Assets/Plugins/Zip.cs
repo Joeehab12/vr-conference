@@ -20,15 +20,15 @@ public class ZipUtil
 
 #endif
 
-	public static void Unzip (string zipFilePath, string location)
+    public static void Unzip (string zipFilePath, string location)
 	{
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
 		Directory.CreateDirectory (location);
-		
-		using (ZipFile zip = ZipFile.Read (zipFilePath)) {
-			
-			zip.ExtractAll (location, ExtractExistingFileAction.OverwriteSilently);
+        using (ZipFile zip = ZipFile.Read (zipFilePath)) {
+            zip.ParallelDeflateThreshold = -1;
+            zip.ExtractAll (location, ExtractExistingFileAction.OverwriteSilently);
 		}
+
 #elif UNITY_ANDROID
 		using (AndroidJavaClass zipper = new AndroidJavaClass ("com.tsw.zipper")) {
 			zipper.CallStatic ("unzip", zipFilePath, location);

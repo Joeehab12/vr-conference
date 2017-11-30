@@ -7,7 +7,7 @@ public class DataManager : MonoBehaviour
 {
     //url + token=token;
     private const string SERVER_URL = "http://localhost:8000/";
-    public const string CONFERENCE_URL = "00123x516y";
+    public const string CONFERENCE_URL = "12345xyzw";
 
     public LoginToken token;
 

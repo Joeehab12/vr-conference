@@ -42,8 +42,7 @@ public class Booth : MonoBehaviour
         boothImageLoader.LoadVideo(data.boothVideoLink, boothLocation);
         boothImageLoader.LoadOuterGraphics(data.boothOuterGraphicsLink);
         boothImageLoader.LoadInnerGraphics(data.boothInnerGraphicsLink);
-        //boothUnzipAndRead.LoadZipData(data.boothZipLink);
-        //boothVideo.LoadVideo(data.boothVideoLink);
+        boothUnzipAndRead.LoadZipData(data.boothZipLink, boothLocation);
     }
 
     public void SendMailToUser()

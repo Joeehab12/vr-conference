@@ -133,7 +133,10 @@ public class Login : MonoBehaviour
     IEnumerator LoadDevice(string newDevice)
     {
         if (!XRSettings.isDeviceActive)
+        {
+            SceneManager.LoadSceneAsync("MainScene");
             yield break;
+        }
         XRSettings.LoadDeviceByName(newDevice);
         yield return null;
         XRSettings.enabled = true;
@@ -144,7 +147,10 @@ public class Login : MonoBehaviour
     IEnumerator LoadDevice()
     {
         if (!XRSettings.isDeviceActive)
+        {
+            SceneManager.LoadSceneAsync("MainScene");
             yield break;
+        }
         var devices = XRSettings.supportedDevices;
         if (devices == null || devices.Length < 1)
             yield break;

@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4698384009910864}
   - component: {fileID: 65821189992946716}
   - component: {fileID: 114539852750698544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RangeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4760241341066750}
   - component: {fileID: 33329717233712508}
   - component: {fileID: 23629440799969128}
+  - component: {fileID: 65811692600948776}
   m_Layer: 0
   m_Name: BoothStand
   m_TagString: Untagged
@@ -989,6 +990,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65811692600948776
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341992782535538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0395962, y: 0.011012412, z: 0.027661255}
+  m_Center: {x: 0.009362896, y: -0.0020394288, z: 0.013830627}
 --- !u!65 &65821189992946716
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1062,7 +1075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20af40b2e84b2449987010847211b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bannerRends: []
+  bannerRends:
+  - {fileID: 23629440799969128}
+  - {fileID: 23115653980991166}
+  - {fileID: 23057772189299744}
   WallRend: {fileID: 23209983411056524}
   videoRend: {fileID: 23351227227646378}
   vp: {fileID: 328569137140084508}
