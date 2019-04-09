@@ -16,7 +16,7 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
   from: 'VR Conference <noreply.vrconference@gmail.com>',
   to: req.body.destinationEmail,
-  attachments:[{filename: "Booth_" + req.body.location + ".pdf",path: req.body.path }],
+  attachments:[{filename: req.body.path.substring(req.body.path.lastIndexOf('/')+1),path: req.body.path }],
   subject: '[Booth '+ req.body.location+ ' Documents]',
   text: 'Dear User:\n\n Kindly find attached your registered booth documents in PDF format.\n\n\n Sincerely,\n VR Conference Team'
 };
